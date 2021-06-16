@@ -23,7 +23,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                target: blog_articles
+                target: app_homepage
             
             # Activation du form_login
             # Désormais, lorsque le système de sécurité lance le processus d'authentification,
@@ -40,6 +40,15 @@ security:
 
                 use_referer: true
 
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path: /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -54,4 +63,3 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user, roles: ROLE_USER }
-        - { path: ^/minee, roles: ROLE_AEP }

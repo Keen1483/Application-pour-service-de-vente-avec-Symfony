@@ -1,0 +1,504 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/grid.css') }}">
+{% endblock %}
+
+<div class="w-10 rounded refresh move">
+    <a href="{{ path('app_homepage') }}">
+        <img src="{{ asset('images/tap2.png') }}" alt="" class="img-fluid my-1 border rounded">
+    </a>
+</div>
+
+<div class="row my-5">
+    {% set result1 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result1.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result1.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result1.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result1.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result1.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result1.setAt|date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result1.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result2 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result2.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result2.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result2.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result2.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result2.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result2.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result2.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result3 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result3.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result3.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result3.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result3.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result3.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result3.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result3.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row my-5">
+    {% set result4 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result4.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result4.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result4.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result4.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result4.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result4.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result4.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result5 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result5.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result5.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result5.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result5.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result5.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result5.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result5.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result6 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result6.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result6.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result6.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result6.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result6.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result6.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result6.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row my-5">
+    {% set result7 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result7.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result7.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result7.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result7.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result7.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result7.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result7.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result8 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result8.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result8.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result8.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result8.price }} FCFA</span>
+        </div>
+        <div class="d-flex justify-content-between">
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result8.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result8.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result8.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}   
+    </div>
+
+    {% set result9 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result9.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result9.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result9.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result9.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result9.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result9.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result9.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row my-5">
+    {% set result10 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result10.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result10.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result10.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result10.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result10.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result10.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result10.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result11 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result11.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result11.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result11.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result11.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result11.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result11.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result11.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result12 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result12.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result12.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result12.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result12.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result12.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result12.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result12.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row my-5">
+    {% set result13 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result13.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result13.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result13.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result13.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result13.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result13.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result13.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result14 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result14.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result14.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result14.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result14.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-around">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result14.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result14.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('edit', {id: result14.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% set result15 = random(products) %}
+    <div class="col-md-4 col-xs-6">
+        <div class="text-center bg-success mt-0 border rounded">
+            <span class="align-self-start">{{ result15.name }}</span>
+        </div>
+        <div class="move">
+            <a href="{{ path('show', {'id': result15.id}) }}">
+                <img src="{{ asset('uploads/images/' ~ result15.image) }}" alt="" class="img-fluid my-1 border rounded">
+            </a>
+        </div>
+        <div class="text-center bg-primary mt-0 border rounded">
+            <span class="align-self-end">{{ result15.price }} FCFA</span>
+        </div>
+        {% if admin %}
+            <div class="d-flex justify-content-between">
+                <div class="btn btn-warning">
+                    <a href="{{ path('edit', {id: result15.id}) }}">
+                        <img src="{{ asset('images/crayon.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="text-white">
+                    {{ result15.setAt | date('d/m/Y') }}
+                </div>
+                <div class="btn btn-danger">
+                    <a href="{{ path('delete', {id: result15.id}) }}">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% block javascripts %}
+    <script src="{{ asset('js/grid-move.js') }}"></script>
+{% endblock %}

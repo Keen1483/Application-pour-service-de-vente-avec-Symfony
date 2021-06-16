@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h2>Donnez le rôle d'administrateur à vos utilisateus</h2>
+
+    {% for user in users %}
+        <div class="d-flex">
+            <div class="btn btn btn-warning mb-3">
+                <a title="cliquez pour rendre l'utilisateur administrateur" href="{{ path('roles', {id: user.id}) }}">Nom : {{ user.name }}, Email: {{ user.email }}</a>
+            </div>
+        </div>
+        
+    {% endfor %}
+    
+{% endblock %}

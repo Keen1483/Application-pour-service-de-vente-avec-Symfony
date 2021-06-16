@@ -1,83 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="display-4 mb-5 border rounded text-center">Ministère de l'eau et de l'énergie du Cameroun</h1>
-    <div class="row"> 
-        <div class="col-md-8 d-block">
-            <h2 class="display-5"><strong>Créez des profils sociaux</strong> et participez à la construction de l'environnement</h2>
-            <div class="d-flex flex-row">
-                <div class="p-4 align-self-start">
-                    <i class="material-icons icons-check">check</i>
-                </div>
-                <div class="p-4 align-self-end">
-                    Alimentation des foyés d'habitations en <strong>eau potable</strong>
-                </div>
-            </div>
-            <div class="d-flex flex-row">
-                <div class="p-4 align-self-start">
-                    <i class="material-icons icons-check">check</i>
-                </div>
-                <div class="p-4 align-self-end">
-                    Electrifications de la société
-                </div>
-            </div>
-            <div class="d-flex flex-row">
-                <div class="p-4 align-self-start">
-                    <i class="material-icons icons-check">check</i>
-                </div>
-                <div class="p-4 align-self-end">
-                    Préservation de la nature
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-primary text-center card-form">
-                <div class="card-body">
-                    <h3>Inscrivez-vous aujourd'hui</h3>
+    <h1 class="display-4 mb-5 border rounded text-center">AVENUE DES PRODUITS DE HAUTE QUALITE</h1>
+    
+    {% include "layouts/partials/_grid.html.twig" %}
 
-                    {{ form_start(form_user) }}
-                        <div class="form-group ">
-                            {{ form_widget(form_user.username, {'attr': {'class': 'form-control-lg', 'placeholder': "Nom d'utilisateur"}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_widget(form_user.email, {'attr': {'class': 'form-control-lg', 'placeholder': 'Adresse email'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_widget(form_user.password, {'attr': {'class': 'form-control-lg', 'placeholder': 'Mot de passe !'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_widget(form_user.password_confirm, {'attr': {'class': 'form-control-lg', 'placeholder': 'Confirmez le mot de passe !'}}) }}
-                        </div>
-                        <input type="submit" value="Enregistrer" class="btn btn-outline-light btn-block">
-                    {{ form_end(form_user) }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row my-5">
-        <div class="col-md-6">
-            <img src="{{ asset('images/life/pump.jpg') }}" alt="" class="img-fluid mb-3 rounded-circle">
-        </div>
-        <div class="col-md-6">
-            <h2>L'eau : source de vie</h2>
-            <p>
-                L’eau, source de vie, sang de la terre, tout le monde la connait, … ou croit la connaitre. 
-                Chacun à tout le moins sait que sans eau, on ne vivrait pas très longtemps, et que toute vie 
-                sur terre serait impossible.
-                <blockquote>
-                    L’eau, c’est la vie, c’est la santé. Or, « La santé est le trésor le plus précieux et le plus 
-                    facile à perdre, c’est cependant le plus mal gardé ».
-                </blockquote>
-            </p>
-        </div>
-    </div>
     <div class="mt-5 started">
         <p class="getting-started text-center">
-            Sans détour faites partie des constructeur de la société
+            Sans détour consultez nos différentes catégories de produits
         </p>
         <p class="m-3 pb-3">
-            <a href="{{ path('blog_home') }}" class="btn btn-primary btn-block getting-started"><strong>Commencez ici</strong></a>
+            <a href="{{ path('products') }}" class="btn btn-primary btn-block getting-started"><strong>Commencez ici</strong></a>
         </p>
     </div>
 {% endblock %}

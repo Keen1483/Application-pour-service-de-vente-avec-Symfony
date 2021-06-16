@@ -1,0 +1,13 @@
+{# after #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        {% if label is same as('error') %}
+            {% set label = 'bg-danger' %}
+        {% else %}
+            {% set label = 'bg-succes' %}
+        {% endif %}
+        <div class="alert {{ label }} mt-5'" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}

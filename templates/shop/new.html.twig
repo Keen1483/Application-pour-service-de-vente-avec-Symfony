@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h1>Administration</h1>
+
+    <a href="{{ path('manager') }}" class="btn btn-warning">Gestion des utilisateurs</a>
+
+    {% include "layouts/partials/_grid.html.twig" %}
+
+    <div class="row">
+        <div class="col-md-6 save-edit">
+            <div class="card bg-primary text-center card-form">
+                <div class="card-body">
+                    <h3>Enregistrer un article</h3>
+                        {{ form_start(form_product) }}
+
+                        {{ form_row(form_product.name, {
+                            'label': "Nom",
+                            'attr': {
+                                'placeholder': "nom du produit"
+                            }
+                        }) }}
+                        {{ form_row(form_product.category, {
+                            'label': "Catégorie",
+                            'attr': {
+                                'placeholder': "catégory du produit"
+                            }
+                        }) }}
+                        {{ form_row(form_product.price, {
+                            'label': "Prix",
+                            'attr': {
+                                'placeholder': "prix du produit"
+                            }
+                        }) }}
+                        {{ form_row(form_product.image, {
+                            'label': "Image",
+                            'attr': {
+                                'placeholder': "image du produit"
+                            }
+                        }) }}
+                        {{ form_row(form_product.description, {
+                            'label': "Description",
+                            'attr': {
+                                'placeholder': "décrivez le produit"
+                            }
+                        }) }}
+
+                        <button type="submit" class="btn btn-primary">
+                            {% if edit_product %}
+                                Enregistrer les modifications
+                            {% else %}
+                                Ajouter le produit
+                            {% endif %}
+                        </button>
+
+                    {{ form_end(form_product) }}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

@@ -93,15 +93,6 @@ class User implements UserInterface
      */
     private $createdAt;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Aep::class, mappedBy="user")
-     */
-    private $aeps;
-
-    public function __construct()
-    {
-        $this->aeps = new ArrayCollection();
-    }
 
     // Création de la commande console pour ajouter un role à un user
     public function addRoles(string $roles): self
@@ -236,37 +227,6 @@ class User implements UserInterface
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Aep[]
-     */
-    public function getAeps(): Collection
-    {
-        return $this->aeps;
-    }
-
-    public function addAep(Aep $aep): self
-    {
-        if (!$this->aeps->contains($aep)) {
-            $this->aeps[] = $aep;
-            $aep->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAep(Aep $aep): self
-    {
-        if ($this->aeps->contains($aep)) {
-            $this->aeps->removeElement($aep);
-            // set the owning side to null (unless already changed)
-            if ($aep->getUser() === $this) {
-                $aep->setUser(null);
-            }
-        }
 
         return $this;
     }

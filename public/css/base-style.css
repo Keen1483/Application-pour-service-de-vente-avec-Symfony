@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 body {
     --bg-color : #333;
     --font-color: #fff;
@@ -61,14 +62,26 @@ body {
 
 .home-inner .blog {
     background-color: #3f6f9c;
+    background-image: url('../images/elect.jpg');
 }
 
 .home-inner .aep {
     background-color: #b24040;
+    background-image: url('../images/cos.jpg');
 }
 
 .home-inner .about {
     background-color: #a3be79;
+    background-image: url('../images/tv.jpg');
+}
+
+.home-inner .vet {
+    background-color: #a3be79;
+    background-image: url('../images/vet.jpg');
+}
+
+.home-inner .food {
+    background-image: url('../images/food.jpg');
 }
 
 .home-inner .blog-head, .home-inner .aep-head, .home-inner .about-head {
@@ -92,4 +105,34 @@ body {
 
 .home-inner .started {
     background-color: rgba(248, 249, 250, .3);
+}
+
+.refresh {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    z-index: 3000;
+    background-color: whitesmoke;
+    box-shadow: 0.2rem 0.2rem #004d00;
+}
+
+.move:hover {
+    background-color: aqua;
+    transform: translate(.3rem, .3rem);
+}
+
+
+.save-edit {
+    width: 400px;
+    position: fixed;
+    top: 12%;
+    z-index: 3000;
+    right: 0rem;
+}
+
+#hide {
+    cursor: pointer;
+}
+#hide:active {
+    display: none;
 }

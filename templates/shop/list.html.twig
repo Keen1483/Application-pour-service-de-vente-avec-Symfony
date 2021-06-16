@@ -1,0 +1,139 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <div id="elect" class="border rounded text-center my-4">
+        <h2 class="my-2">Rayon électromenagers</h2>
+    </div>
+    {% if elects | length == 0 %}
+        <div class="text-danger text-center">Manque de stock</div>
+    {% endif %}
+    <section class="mb-4">
+        <div class="d-flex">
+            {% for elect in elects %}
+                <div class="col-md-4">
+                        <div class="text-center bg-success mt-0 border rounded">
+                            <span class="align-self-start">{{ elect.name }}</span>
+                        </div>
+                        <div class="move">
+                            <a href="{{ path('show', {'id': elect.id}) }}">
+                                <img src="{{ asset('uploads/images/' ~ elect.image) }}" alt="" class="img-fluid my-1 border rounded">
+                            </a>
+                        </div>
+                        <div class="text-center bg-primary mt-0 border rounded">
+                            <span class="align-self-end">{{ elect.price }} FCFA</span>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+
+    <div id="cosm" class="border rounded text-center my-4">
+        <h2 class="my-2">Rayon Cosmétiques</h2>
+    </div>
+    {% if cosms | length == 0 %}
+        <div class="text-danger center">Manque de stock</div>
+    {% endif %}
+    <section class="mb-4">
+        <div class="d-flex">
+            {% for cosm in cosms %}
+                <div class="col-md-4">
+                    <div class="text-center bg-success mt-0 border rounded">
+                        <span class="align-self-start">{{ cosm.name }}</span>
+                    </div>
+                    <div class="move">
+                    <a href="{{ path('show', {'id': cosm.id}) }}">
+                        <img src="{{ asset('uploads/images/' ~ cosm.image) }}" alt="" class="img-fluid my-1 border rounded">
+                    </a>
+                    </div>
+                    <div class="text-center bg-primary mt-0 border rounded">
+                        <span class="align-self-end">{{ cosm.price }} FCFA</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+
+    <div id="tronic" class="border rounded text-center my-4">
+        <h2 class="my-2">Rayon Electroniques</h2>
+    </div>
+    {% if tronics | length == 0 %}
+        <div class="text-danger text-center">Manque de stock</div>
+    {% endif %}
+    <section class="mb-4">
+        <div class="d-flex">
+            {% for tronic in tronics %}
+                <div class="col-md-4">
+                    <div class="text-center bg-success mt-0 border rounded">
+                        <span class="align-self-start">{{ tronic.name }}</span>
+                    </div>
+                    <div class="move">
+                        <a href="{{ path('show', {'id': tronic.id}) }}">
+                            <img src="{{ asset('uploads/images/' ~ tronic.image) }}" alt="" class="img-fluid my-1 border rounded">
+                        </a>
+                    </div>
+                    <div class="text-center bg-primary mt-0 border rounded">
+                        <span class="align-self-end">{{ tronic.price }} FCFA</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <div id="dress" class="border rounded text-center my-4">
+        <h2 class="my-2">Rayon Habillements</h2>
+    </div>
+    {% if dresses | length == 0 %}
+        <div class="text-danger text-center">Manque de stock</div>
+    {% endif %}
+    <section class="mb-4">
+        <div class="d-flex">
+            {% for dress in dresses %}
+                <div class="col-md-4">
+                    <div class="text-center bg-success mt-0 border rounded">
+                        <span class="align-self-start">{{ dress.name }}</span>
+                    </div>
+                    <div class="move">
+                        <a href="{{ path('show', {'id': dress.id}) }}">
+                            <img src="{{ asset('uploads/images/' ~ dress.image) }}" alt="" class="img-fluid my-1 border rounded">
+                        </a>
+                    </div>
+                    <div class="text-center bg-primary mt-0 border rounded">
+                        <span class="align-self-end">{{ dress.price }} FCFA</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <div id="food" class="border rounded text-center my-4">
+        <h2 class="my-2">Rayon Habillements et Boissons</h2>
+    </div>
+    {% if foods | length == 0 %}
+        <div class="text-danger text-center">Manque de stock</div>
+    {% endif %}
+    <section class="mb-4">
+        <div class="d-flex">
+            {% for food in foods %}
+                <div class="col-md-4">
+                    <div class="text-center bg-success mt-0 border rounded">
+                        <span class="align-self-start">{{ food.name }}</span>
+                    </div>
+                    <div class="move">
+                        <a href="{{ path('show', {'id': food.id}) }}">
+                            <img src="{{ asset('uploads/images/' ~ food.image) }}" alt="" class="img-fluid my-1 border rounded">
+                        </a>
+                    </div>
+                    <div class="text-center bg-primary mt-0 border rounded">
+                        <span class="align-self-end">{{ food.price }} FCFA</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

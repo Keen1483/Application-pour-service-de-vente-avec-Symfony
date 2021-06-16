@@ -4,58 +4,11 @@
         <meta charset="UTF-8">
         <title>{% block title %}{{ title }}{% endblock %}</title>
         {% block stylesheets %}
-            {# bootstrap 4.5 stylesheet refrence #}
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-                integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
-                crossorigin="anonymous">
-
-            {# Material Icons #}
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-            {# plugin easy numpad stylesheet reference #}
-            <link rel="stylesheet" href="{{ asset('css/easy-numpad.css') }}">
-
-            {# jQuery datepicker #}
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-            {# plugin jQuery datepicker stylesheets reference #}
-            <link rel="stylesheet" href="{{ asset('css/datepicker/jquery.dateselect.css') }}">
-
-            <link rel="stylesheet" href="{{ asset('css/base-style.css') }}">
+            {% include "layouts/partials/_stylesheet.html.twig" %}
         {% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-            <div class="container">
-                <a href="{{ path('app_homepage') }}" class="navbar-brand mb-3">BRAND</a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="{{ path('app_homepage') }}" class="nav-link">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ path('blog_home') }}" class="nav-link">Posts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ path('aep_home') }}" class="nav-link">AEP</a>
-                        </li>
-                        <li class="nav-item">
-                            {% if app.user %}
-                                <a href="{{ path('app_logout') }}" class="nav-link">Deconnexion</a>
-                            {% else %}
-                                <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
-                            {% endif %}
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" data-toggle="modal" data-target="#contactModal" class="nav-link">À propos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include "layouts/partials/_nav.html.twig" %}
 
         <header id="home-section">
             <div class="dark-overlay">
@@ -64,85 +17,9 @@
                         <div class="row justify-content-center custom-line">
                             <div class="col col-lg-10">
                                 <div class="row">
-                                    <div class="col-md-3 d-none d-md-block pr-4">
-                                        <div>
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item">
-                                                    <a href="{{ path('app_homepage') }}" class="nav-link">
-                                                        <span class="material-icons mr-2">home</span>Accueil
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    {% if app.user %}
-                                                        <a href="{{ path('app_logout') }}" class="nav-link"><span class="material-icons mr-2">assignment_return</span>Deconnexion</a>
-                                                    {% else %}
-                                                        <a href="{{ path('app_login') }}" class="nav-link"><span class="material-icons mr-2">login</span>Connexion</a>
-                                                    {% endif %}
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="{{ path('inscription') }}" class="nav-link"><span class="material-icons mr-2">how_to_reg</span>S'inscrire</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <div class="d-block border mt-3 left-menu blog">
-                                                <div class="blog-head text-center">
-                                                    <a href="{{ path('blog_home') }}" class="text-dark">
-                                                        <span class="material-icons mr-2">article</span>Posts
-                                                    </a>
-                                                </div>
-                                                <div class="blog-body pt-1">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="{{ path('blog_articles') }}" class="text-white">Liste des articles</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ path('blog_new') }}" class="text-white">Créer un article</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="d-block border my-3 left-menu aep">
-                                                <div class="aep-head text-center">
-                                                    <a href="{{ path('aep_home') }}" class="text-dark">
-                                                        <span class="material-icons mr-2">branding_watermark</span>AEP
-                                                    </a>
-                                                </div>
-                                                <div class="aep-body pt-1">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="{{ path('aep_liste') }}" class="text-white">Liste des AEP</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ path('aep_home') }}" class="text-white">Remplir une AEP</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="d-block border mb-3 left-menu about">
-                                                <div class="about-head text-center">
-                                                    <a href="#" class="text-dark">
-                                                        <span class="material-icons mr-2">settings</span>À propos
-                                                    </a>
-                                                </div>
-                                                <div class="blog-body pt-1 text-center">
-                                                    <ul class="navbar-nav">
-                                                        <li class="nav-item">
-                                                            <a href="#" data-toggle="modal" data-target="#contactModal" class="nav-link text-white my-0 py-0">
-                                                                <span class="material-icons mr-2">email</span>Contact
-                                                            </a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a href="#" class="nav-link text-white my-0 py-0">
-                                                                <span class="material-icons mr-2">live_help</span>Aide
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% include "layouts/partials/_header.html.twig" %}
                                     <div class="col-md-9">
+                                        {% include "layouts/partials/_flash_message.html.twig" %}
                                         {% block body %}{% endblock %}
                                     </div>
                                 </div>
@@ -154,83 +31,10 @@
         </header>
 
             <!-- MAIN FOOTER -->
-        <footer id="main-footer" class="bg-dark py-4">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col">
-                        <p class="mb-1" style="color: lightblue;">Copyright &copy 2020</p>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">Contactez nous</button>
-                    </div>
-                    <div class="col text-right">
-                        <a href="https://linkedin.com/mwlite/in/bernard-geraud-3752a01aa"><img class="rounded" src="{{ asset('images/icons/linkedIn.png') }}" alt="facebook"></a>
-                        <a href="https://github.com/Keen1483"><img class="rounded" src="{{ asset('images/icons/github.png') }}" alt="twitter"></a>
-                        <a href="https://twitter.com/DongmoGeraud"><img class="rounded" src="{{ asset('images/icons/twitter.png') }}" alt="twitter"></a>
-                        <a href="https://api.whatsapp.com/send?phone=237 670142491"><img class="rounded" src="{{ asset('images/icons/whatsapp.png') }}" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- CONTACT US -->
-        <div class="modal fade text-dark" id="contactModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactModalTitle">
-                            Contactez nous
-                        </h5>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Nom</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary btn-block">Envoyez</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "layouts/partials/_footer.html.twig" %}
 
         {% block javascripts %}
-            {# bootstrap 4.5 javascript reference #}
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
-                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
-                crossorigin="anonymous"></script>
-
-            {# jQury 3.5 #}
-            <script src="{{ asset('js/jquery.js') }}"></script>
-            {# jQuery mousewheel #}
-            <script src="{{ asset('js/datepicker/jquery.mousewheel.js') }}"></script>
-
-            {# form AEP #}
-            <script src="{{ asset('js/formAep.js') }}"></script>
-
-            {# plugin easy numpad javascript reference #}
-            <script src="{{ asset('js/easy-numpad.js') }}"></script>
-
-            {# plugin jQuery datepicker javascript reference #}
-            <script src="{{ asset('js/datepicker/jquery.dateselect.js') }}"></script>
+            {% include "layouts/partials/_javascript.html.twig" %}
         {% endblock %}
     </body>
 </html>

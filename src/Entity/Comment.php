@@ -33,8 +33,7 @@ class Comment
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="comments")
      */
     private $article;
 
@@ -79,12 +78,12 @@ class Comment
         return $this;
     }
 
-    public function getArticle(): ?Article
+    public function getArticle(): ?Product
     {
         return $this->article;
     }
 
-    public function setArticle(?Article $article): self
+    public function setArticle(?Product $article): self
     {
         $this->article = $article;
 

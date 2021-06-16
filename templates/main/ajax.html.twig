@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('#loaduser').on('click', function(event) {
+                $.ajax({  
+                    url: "{{ path('ajax') }}",
+                    type: "POST",
+                    dataType: "json",
+                    
+                    success: function(data, status) {
+                        console.log(data);
+                        $('table').css('color', '#fff');
+                        var e = $('<tr><th>Username</th><th>Email</th></tr>');
+                        $('#user').html('');
+                        $('#user').append(e);
+                        
+                        for(i = 0; i < data.length; i++) {  
+                            user = data[i];
+                            var e = $('<tr><td id="username"></td><td id="email"></td></tr>');
+                            
+                            $('#username', e).html(user['username']);
+                            $('#email', e).html(user['email']);
+                            $('#user').append(e);
+                        }
+                    },  
+                    error: function(xhr, textStatus, errorThrown) {  
+                        alert('Ajax request failed.');
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <a id ="loaduser" href = "#">Load user information</a>  
+    </br> 
+    </br>  
+
+    <table class="table">  
+    <tbody id="user"></tbody>  
+    </table>
+{% endblock %}

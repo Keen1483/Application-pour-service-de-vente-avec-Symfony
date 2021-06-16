@@ -13,8 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -22,7 +22,7 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -30,13 +30,13 @@ class Category
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category")
      */
-    private $articles;
+    private $product;
 
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        $this->product = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,14 +44,14 @@ class Category
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
@@ -69,30 +69,29 @@ class Category
     }
 
     /**
-     * @return Collection|Article[]
+     * @return Collection|Product[]
      */
-    public function getArticles(): Collection
+    public function getProduct(): Collection
     {
-        return $this->articles;
+        return $this->product;
     }
 
-    public function addArticle(Article $article): self
+    public function addProduct(Product $product): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setCategory($this);
+        if (!$this->product->contains($product)) {
+            $this->product[] = $product;
+            $product->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeProduct(Product $product): self
     {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
+        if ($this->product->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($article->getCategory() === $this) {
-                $article->setCategory(null);
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
             }
         }
 
