@@ -6,7 +6,44 @@
 
     <a href="{{ path('manager') }}" class="btn btn-warning">Gestion des utilisateurs</a>
 
-    {% include "layouts/partials/_grid.html.twig" %}
+    {#{% include "layouts/partials/_grid.html.twig" %}#}
+
+    <section class="articles">
+
+        {% for product in products %}
+
+            <article>
+                <h2>{{ product.name }}</h2>
+                <div class="metadata">Enregistrer le {{ product.setAt|date("d/m/Y à H:i:s") }} dans la catégorie 
+                    {{ product.category.name }}</div>
+                <div class="content">
+                    <a href="{{ path('show', {'id': product.id}) }}">
+                        <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="" class="img-fluid my-1 border rounded">
+                    </a>
+                </div>
+                <div class="text-center bg-primary mt-0 border rounded">
+                    <span class="align-self-end">{{ product.price }} FCFA</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <div class="btn btn-warning">
+                        <a href="{{ path('edit', {id: product.id}) }}">
+                            <img src="{{ asset('images/crayon.png') }}" alt="">
+                        </a>
+                    </div>
+                    <div class="text-white">
+                        {{ product.setAt|date('d/m/Y') }}
+                    </div>
+                    <div class="btn btn-danger">
+                        <a href="{{ path('delete', {id: product.id}) }}">
+                            <span class="material-icons">close</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        {% endfor %}
+
+    </section>
 
     <div class="row">
         <div class="col-md-6 save-edit">
